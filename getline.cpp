@@ -9,6 +9,7 @@
  *介绍cin对象的getline方法
  */
 #include<iostream>
+
 using namespace std;
 
 int main(void)
