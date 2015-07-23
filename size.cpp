@@ -6,7 +6,9 @@
  ************************************************************************/
 
 #include<iostream>
+
 using namespace std;
+
 int main(void)
 {
     std::cout<<"The size of short is :\t\t";
