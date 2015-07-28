@@ -34,6 +34,7 @@ Teacher::Teacher()
     cout<<"无参构造函数"<<endl;
 }
 
+/*初始化列表默认值在定义时写*/
 Teacher::Teacher(string name,int age):m_strName("hello"),m_iAge(3)
 {
 }
