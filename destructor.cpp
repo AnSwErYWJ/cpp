@@ -12,7 +12,7 @@ using namespace std;
 class Student
 {
     public:
-    Student(string name,int age):m_strName("answer"),m_iAge(22)
+    Student();
     Student(const Student &stu);
     ~Student();
     private:
@@ -20,7 +20,7 @@ class Student
     int m_iAge;
 };
   
-Student::Student(string name,int age)
+Student::Student():m_strName("answer"),m_iAge(22)
 {
     cout<<"初始化列表"<<endl;
 }
