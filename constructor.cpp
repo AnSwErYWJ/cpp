@@ -16,7 +16,7 @@ class Teacher
 {
     public:
     Teacher();//无参构造函数
-    Teacher(string name,int age);//有参构造函数
+    Teacher(string name,int age=2);//有参构造函数,默认值在声明时写。
     void setName(string _name);
     string getName();
     void setAge(int _age);
@@ -31,14 +31,11 @@ Teacher::Teacher()
 {
     m_strName="answer";
     m_iAge=22;
-    cout<<"无参构造函数结束"<<endl;
+    cout<<"无参构造函数"<<endl;
 }
 
-Teacher::Teacher(string name,int age)
+Teacher::Teacher(string name,int age):m_strName("hello"),m_iAge(3)
 {
-    m_strName=name;
-    m_iAge=age;
-    cout<<"有参构造函数结束"<<endl;
 }
 
 void Teacher::setName(string _name)
@@ -64,7 +61,7 @@ int Teacher::getAge()
 int main(void)
 {
     Teacher t1;
-    Teacher t2("yuan",20);
+    Teacher t2("yuan");
     cout<<t1.getName()<<" "<<t1.getAge()<<endl;
     cout<<t2.getName()<<" "<<t2.getAge()<<endl;
     return 0;
