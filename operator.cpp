@@ -6,7 +6,7 @@
  ************************************************************************/
 
 /*
- *一元运算符重载
+ *运算符重载
  */
 
 #include<iostream>
@@ -15,6 +15,18 @@ using namespace std;
 class Coordinate
 {
     friend Coordinate &operator-(Coordinate &c);
+    friend Coordinate operator+(const Coordinate &c1,const Coordinate &c2)
+    {
+        Coordinate temp(0,0);
+        temp.m_iX=c1.m_iX+c2.m_iX;
+        temp.m_iY=c1.m_iY+c2.m_iY;
+        return temp;
+    }
+    friend ostream &operator<<(ostream &output,Coordinate &coor)
+    {
+        output<<coor.m_iX<<","<<coor.m_iY;
+        return output;
+    }
     public:
     Coordinate(int x,int y)
     {
@@ -47,6 +59,23 @@ class Coordinate
         return old;
     }
 
+    //+成员函数重载
+    //Coordinate operator+(const Coordinate &c)
+    //{
+    //    Coordinate temp(0,0);
+    //    temp.m_iX=this->m_iX+c.m_iX;
+    //    temp.m_iY=this->m_iY+c.m_iY;
+    //    return temp;
+    //}
+
+    int operator[](int index)
+    {
+        if(0==index)
+        return m_iX;
+        if(1==index)
+        return m_iY;
+    }
+
     int getX(){return m_iX;}
     int getY(){return m_iY;}
     private:
@@ -65,10 +94,18 @@ Coordinate &operator-(Coordinate &c)
 int main(void)
 {
     Coordinate coor1(1,3);
-    cout<<coor1.getX()<<","<<coor1.getY()<<endl;
+    Coordinate coor2(2,4);
+    Coordinate coor3(0,0);
+    //cout<<coor1.getX()<<","<<coor1.getY()<<endl;
     //-coor1;//coor1.operator-()
-    coor1++;
-    cout<<coor1.getX()<<","<<coor1.getY()<<endl;
+    //coor1++;
+    
+    //coor3=coor1+coor2;
+
+   // cout<<coor3.getX()<<","<<coor3.getY()<<endl;
+    //cout<<coor3<<endl;
+
+    cout<<coor1[1]<<endl;
 
     return 0;
 }
